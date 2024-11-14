@@ -1,12 +1,12 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 
-@Schema()
-export class Subcriber {
+@Schema({ timestamps: true })
+export class Subscriber {
     @Prop({ required: true })
     name: string;
 
-    @Prop({ required: true })
+    @Prop({})
     firstname: string;
 
     @Prop({ unique: true })
@@ -15,7 +15,7 @@ export class Subcriber {
     @Prop({ required: true })
     password: string;
 
-    @Prop({})
+    @Prop({ required: false })
     profil: string;
 
     @Prop({ unique: true })
@@ -24,4 +24,4 @@ export class Subcriber {
 }
 
 
-export const SchemaSubscbriber = SchemaFactory.createForClass(Subcriber);
+export const SubscriberSchema = SchemaFactory.createForClass(Subscriber);
